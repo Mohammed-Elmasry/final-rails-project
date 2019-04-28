@@ -6,10 +6,10 @@ module Accessible
   
     protected
     def check_user
-      if current_admin
+      if current_seller
         flash.clear
-        # if you have rails_admin. You can redirect anywhere really
-        redirect_to(rails_admin.dashboard_path) && return
+        # if you have rails_seller. You can redirect to sellers' root path
+        redirect_to(rails_seller.dashboard_path) && return
       elsif current_user
         flash.clear
         # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
