@@ -9,6 +9,9 @@ en:
       seller_user:
         confirmed: "Your SELLER email address has been successfully confirmed."
         confirmed: "Your email address has been successfully confirmed."
+      buyer_user:
+        confirmed: "Your BUYER email address has been successfully confirmed."
+        confirmed: "Your email address has been successfully confirmed."
 
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
