@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :buyers
+  devise_for :buyers, path: 'buyers', controllers: {sessions: 'buyers/sessions',
+     confirmation: 'buyers/confirmations',
+     passwords: 'buyers/passwords',
+     registerations: 'buyers/registrations',
+  }
   devise_for :sellers, path: 'sellers', controllers: {sessions: 'sellers/sessions',
      confirmation: 'sellers/confirmations',
      passwords: 'sellers/passwords',
