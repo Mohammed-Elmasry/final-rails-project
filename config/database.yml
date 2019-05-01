@@ -14,19 +14,31 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
+<<<<<<< HEAD
   password: bigbigfamily
+=======
+  password:
+>>>>>>> 00e95d3e30c64828af9c9e3ba1c98f3c93db3be7
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
+<<<<<<< HEAD
   database: EcommercialApp_development
+=======
+  database: Ecommerce_development
+>>>>>>> 00e95d3e30c64828af9c9e3ba1c98f3c93db3be7
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+<<<<<<< HEAD
   database: EcommercialApp_test
+=======
+  database: Ecommerce_test
+>>>>>>> 00e95d3e30c64828af9c9e3ba1c98f3c93db3be7
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +61,12 @@ test:
 #
 production:
   <<: *default
+<<<<<<< HEAD
   database: EcommercialApp_production
   username: EcommercialApp
   password: <%= ENV['ECOMMERCIALAPP_DATABASE_PASSWORD'] %>
+=======
+  database: Ecommerce_production
+  username: Ecommerce
+  password: <%= ENV['ECOMMERCE_DATABASE_PASSWORD'] %>
+>>>>>>> 00e95d3e30c64828af9c9e3ba1c98f3c93db3be7
