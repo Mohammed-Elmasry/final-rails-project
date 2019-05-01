@@ -14,6 +14,9 @@ module Accessible
         flash.clear
         # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
         redirect_to(user_session_path) && return
+      elsif current_buyer
+        flash.clear
+        redirect_to(buyer_session_path) && return
       end
     end
   end
