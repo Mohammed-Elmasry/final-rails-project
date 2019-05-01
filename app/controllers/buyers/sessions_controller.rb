@@ -2,7 +2,9 @@
 
 class Buyers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-
+  include Accessible
+  skip_before_action :check_user, only: :destroy
+  
   # GET /resource/sign_in
   # def new
   #   super
