@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_163612) do
+ActiveRecord::Schema.define(version: 2019_05_01_170256) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -46,7 +46,10 @@ ActiveRecord::Schema.define(version: 2019_05_01_163612) do
     t.integer "in_stock_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "products", "brands"
 end
