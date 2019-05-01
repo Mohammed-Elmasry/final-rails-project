@@ -35,6 +35,11 @@
     <%= form.file_field :image %>
   </div>
 
+  <div class="field">
+  <%=form.label :brand_id%>
+  <%= form.collection_select(:brand_id , Brand.all, :id,:name) %>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>
