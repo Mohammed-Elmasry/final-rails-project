@@ -9,7 +9,7 @@ module Accessible
       if current_seller
         flash.clear
         # if you have rails_seller. You can redirect to sellers' root path
-        redirect_to(rails_seller.dashboard_path) && return
+        redirect_to(seller_session_path) && return
       elsif current_user
         flash.clear
         # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
