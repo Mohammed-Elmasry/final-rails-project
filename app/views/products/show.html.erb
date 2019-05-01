@@ -17,7 +17,11 @@
   <%= @product.price %>
 </p>
 <p>
-  <strong>Brand : <%= @product.brand_id%></strong>
+  <strong>Brand : <%= @product.brand.name%></strong>
+</p>
+
+<p>
+  <strong>Category: <%= @product.category.name%></strong>
 </p>
 
 <p>
