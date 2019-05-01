@@ -25,3 +25,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore schema file
+/db/schema.rb
+
+# Ignore config files
+/config/cable.yml
+/config/database.yml
+/config/credentials.yml.enc
