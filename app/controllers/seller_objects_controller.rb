@@ -5,7 +5,7 @@ class SellerObjectsController < ApplicationController
 
     def create
         # @seller = Seller.new()
-        @seller = Seller.new(params.require(:seller).permit(:email, :password))
+        @seller = Seller.new(params.require(:seller).permit(:email, :password, :store_id))
         if @seller.save
             render 'new'
             flash[:success] = "Seller created Successfully"
