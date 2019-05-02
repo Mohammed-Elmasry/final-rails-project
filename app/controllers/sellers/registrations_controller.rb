@@ -7,15 +7,25 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  #  def new
+  #    @seller = Seller.new
+  #  end
 
   # POST /resource
+  
   # def create
-  #   super
+  #   if can? :create, Seller
+  #     @seller = Seller.new(seller_params)
+  #     if @seller.save
+  #       redirect_to @seller
+  #     else
+  #       render 'new'
+  #     end      
+  #   else
+  #     authorize! :create, Seller
+  #   end
   # end
-
+ 
   # GET /resource/edit
   # def edit
   #   super
