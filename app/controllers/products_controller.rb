@@ -4,7 +4,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.search(params[:search])
+    @products = Product.search(params[:search_from] , params[:search_to])
+    if @products.present?
+      @product
+    else
+      redirect_to products_path , notice: "Not Valid Combination Search"
+    end
   end
 
   # GET /products/1
