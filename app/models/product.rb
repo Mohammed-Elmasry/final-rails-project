@@ -3,9 +3,9 @@ class Product < ApplicationRecord
     belongs_to :brand
     belongs_to :category
     validates :title, :description, :price, :in_stock_quantity ,:image , presence: true
-    def self.search(search_from , search_to)
+    def self.search(search_title, search_descr)
         if search
-            where(["title LIKE ? and description LIKE ? ","%#{search_from}%" , "%#{search_to}%"])
+            where(["title LIKE ? and description LIKE ? ","%#{search_title}%" , "%#{search_descr}%"])
         else
         all
           end
