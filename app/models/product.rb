@@ -5,8 +5,9 @@ class Product < ApplicationRecord
     validates :title, :description, :price, :in_stock_quantity ,:image , presence: true
     def self.search(search)
         if search
-            where(["title LIKE ?","%#{params[:search]}%"])
-    else
+            where(["title LIKE ?","%#{search}%"])
+        else
         all
-    end
+          end
+    end 
 end
