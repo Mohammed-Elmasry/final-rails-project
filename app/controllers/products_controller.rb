@@ -4,12 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.search(params[:search_title] , params[:search_descr])
-    if @search.present?
-      @search
-    else
-      redirect_to products_path, notice: "Not a valid combination"
-    end
+    @products = Product.search(params[:search])
   end
 
   # GET /products/1
