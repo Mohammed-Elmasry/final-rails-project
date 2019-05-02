@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    if can? :create, Product
     @product = Product.new(product_params)
 
     respond_to do |format|
@@ -34,6 +35,9 @@ class ProductsController < ApplicationController
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
+    end
+  else
+    authorize! :create, @product
     end
   end
 
