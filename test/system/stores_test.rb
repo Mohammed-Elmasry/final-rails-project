@@ -14,8 +14,11 @@ class StoresTest < ApplicationSystemTestCase
     visit stores_url
     click_on "New Store"
 
+<<<<<<< HEAD
     fill_in "Name", with: @store.name
     fill_in "Summary", with: @store.summary
+=======
+>>>>>>> develop_seller_store_schema
     click_on "Create Store"
 
     assert_text "Store was successfully created"
@@ -26,8 +29,11 @@ class StoresTest < ApplicationSystemTestCase
     visit stores_url
     click_on "Edit", match: :first
 
+<<<<<<< HEAD
     fill_in "Name", with: @store.name
     fill_in "Summary", with: @store.summary
+=======
+>>>>>>> develop_seller_store_schema
     click_on "Update Store"
 
     assert_text "Store was successfully updated"

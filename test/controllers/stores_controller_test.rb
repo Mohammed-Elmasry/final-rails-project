@@ -17,7 +17,11 @@ class StoresControllerTest < ActionDispatch::IntegrationTest
 
   test "should create store" do
     assert_difference('Store.count') do
+<<<<<<< HEAD
       post stores_url, params: { store: { name: @store.name, summary: @store.summary } }
+=======
+      post stores_url, params: { store: {  } }
+>>>>>>> develop_seller_store_schema
     end
 
     assert_redirected_to store_url(Store.last)
@@ -34,7 +38,11 @@ class StoresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update store" do
+<<<<<<< HEAD
     patch store_url(@store), params: { store: { name: @store.name, summary: @store.summary } }
+=======
+    patch store_url(@store), params: { store: {  } }
+>>>>>>> develop_seller_store_schema
     assert_redirected_to store_url(@store)
   end
 

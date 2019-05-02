@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_05_02_204340) do
+=======
+ActiveRecord::Schema.define(version: 2019_05_02_203454) do
+>>>>>>> develop_seller_store_schema
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -90,8 +94,11 @@ ActiveRecord::Schema.define(version: 2019_05_02_204340) do
   end
 
   create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+<<<<<<< HEAD
     t.string "name"
     t.text "summary"
+=======
+>>>>>>> develop_seller_store_schema
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
