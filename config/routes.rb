@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :stores
   devise_for :buyers, path: 'buyers', controllers: {
      registerations: 'buyers/registrations',
      sessions: 'buyers/sessions',
