@@ -10,6 +10,7 @@ class Ability
        case user
        when User
         can :read, Product
+        can :create, Seller
        when Seller
         can :manage, Product
        when Buyer
