@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'seller_entity/new'
+  get 'seller_entity/create'
   devise_for :buyers, path: 'buyers', controllers: {sessions: 'buyers/sessions',
      confirmation: 'buyers/confirmations',
      passwords: 'buyers/passwords',
