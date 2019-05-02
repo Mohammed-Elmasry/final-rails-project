@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_05_02_204340) do
-=======
-ActiveRecord::Schema.define(version: 2019_05_02_203454) do
->>>>>>> develop_seller_store_schema
+ActiveRecord::Schema.define(version: 2019_05_02_213909) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -89,16 +85,15 @@ ActiveRecord::Schema.define(version: 2019_05_02_203454) do
     t.datetime "remember_created_at"
     t.string "first_name"
     t.string "last_name"
+    t.bigint "store_id"
     t.index ["email"], name: "index_sellers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true
+    t.index ["store_id"], name: "index_sellers_on_store_id"
   end
 
   create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-<<<<<<< HEAD
     t.string "name"
     t.text "summary"
-=======
->>>>>>> develop_seller_store_schema
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -126,4 +121,5 @@ ActiveRecord::Schema.define(version: 2019_05_02_203454) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
+  add_foreign_key "sellers", "stores"
 end
