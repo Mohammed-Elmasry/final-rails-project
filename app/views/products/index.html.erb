@@ -31,5 +31,6 @@
 </table>
 
 <br>
-
+<% if seller_signed_in? %>
 <%= link_to 'New Product', new_product_path %>
+<% end %>
