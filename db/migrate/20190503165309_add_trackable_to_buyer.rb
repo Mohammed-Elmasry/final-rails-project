@@ -1,11 +1,13 @@
 class AddTrackableToBuyer < ActiveRecord::Migration[5.2]
   def change
     change_table :buyers do |t|
-      t.add_column :sign_in_count, :integer, :default => 0
-      t.add_column :current_sign_in_at, :datetime
-      t.add_column :last_sign_in_at, :datetime
-      t.add_column :current_sign_in_ip, :string
-      t.add_column :last_sign_in_ip, :string
+      t.integer :sign_in_count, :integer
+      t.datetime :current_sign_in_at
+      t.datetime :last_sign_in_at 
+      t.string :current_sign_in_ip
+      t.string :last_sign_in_ip
     end
+    add_index  :buyers, :sign_in_count, :default => 0 
+  end
   end
 end
