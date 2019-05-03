@@ -1,0 +1,12 @@
+<% if seller_signed_in? %>
+  <li>
+  <%= link_to('Edit registration', edit_seller_registration_path) %>
+  </li>
+<% elsif not seller_signed_in? and user_signed_in? %>
+  <li>
+    <%= link_to('Create a new Store', new_store_path)  %>
+  </li>
+  <li>
+  <%= link_to('Register a new Seller', new_seller_object_path)  %>
+  </li>
+<% end %>
