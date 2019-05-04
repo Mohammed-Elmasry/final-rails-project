@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 1.14.5'
 gem 'bcrypt', '~> 3.1.7'
  gem 'jwt'
+gem 'simple_command'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use mysql as the database for Active Record
