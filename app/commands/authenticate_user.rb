@@ -1,20 +1,20 @@
-class AuthenticateUser
+class AuthenticateBuyer
     prepend SimpleCommand
     def initialize(email, password)
         @email = email
         @password = password
     end
     def call
-        JsonWebToken.encode(user_id: user.id) if user
+        JsonWebToken.encode(buyer_id: buyer.id) if buyer
      end
      private
 
         attr_accessor :email, :password
-        def user
-            user = User.find_by_email(email)
-            return user if user && user.authenticate(password)
+        def buyer
+            buyer = Buyer.find_by_email(email)
+            return buyer if buyer && buyer.authenticate(password)
         
-            errors.add :user_authentication, 'invalid credentials'
+            errors.add :buyer_authentication, 'invalid credentials'
             nil
         end
 end
