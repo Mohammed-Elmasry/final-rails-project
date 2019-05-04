@@ -8,5 +8,7 @@ class SearchesController < ApplicationController
     def show
         @search = Search.find(params[:id])
     end
-    
+    def search_params
+        params.require(:search).permit(:title , :description , :min_price , :max_price , :brand , :category)
+    end
 end
