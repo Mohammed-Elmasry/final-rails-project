@@ -5,4 +5,8 @@ class SearchesController < ApplicationController
         @brands = Brand.distinct(:brand)
         @stores = Store.distinct(:store)
     end
+    def show
+        @search = Search.find(params[:id])
+    end
+    
 end
