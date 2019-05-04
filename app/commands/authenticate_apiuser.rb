@@ -8,7 +8,7 @@ class AuthenticateApiuser
         JsonWebToken.encode(apiuser_id: apiuser.id) if apiuser
      end
      private
-    apiuser
+    
         attr_accessor :email, :password
         def apiuser
             apiuser = Apiuser.find_by_email(email)
