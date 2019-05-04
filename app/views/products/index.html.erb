@@ -28,7 +28,9 @@
         <td scope="row"><%= link_to 'Edit', edit_product_path(product) %></td>
         <td scope="row"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+        <% if not can? :manage, Product and not user_signed_in? %>
         <td scope="row"><%= link_to 'add to cart', product, method: :post, data: {confirm: 'Are you sure you want to add this product to the cart?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
