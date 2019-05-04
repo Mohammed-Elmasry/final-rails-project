@@ -35,4 +35,6 @@
 </table>
 
 <br>
+<% if can? :manage, Product%>
 <%= link_to 'New Product', new_product_path %>
+<% end %>
