@@ -4,14 +4,14 @@ class AuthorizeApiRequest
         @headers = headers
     end
     def call
-        api_user
+        apiuser
      end
     private
 
         attr_reader :headers
-  def api_user
-    @api_user||= ApiUser.find(decoded_auth_token[:api_user_id]) if decoded_auth_token
-    @api_user || errors.add(:token, 'Invalid token') && nil
+  def apiuser
+    @apiuser||= Apiuser.find(decoded_auth_token[:apiuser_id]) if decoded_auth_token
+    @apiuser || errors.add(:token, 'Invalid token') && nil
   end
 
   def decoded_auth_token
