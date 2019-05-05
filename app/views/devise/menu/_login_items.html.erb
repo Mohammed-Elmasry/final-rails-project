@@ -23,6 +23,9 @@
   <li>
     <%= link_to('Logout', destroy_buyer_session_path, method: :delete)  %>
   </li>
+  <li>
+    <%= link_to('go to Cart', cart_index_path)  %>
+  </li>
   <% elsif not user_signed_in? and not buyer_signed_in? and not seller_signed_in? %>
     <li>
   <%= link_to('Login as buyer', new_buyer_session_path)  %>        

@@ -37,13 +37,21 @@
         <td scope="row"><%= product.description %></td>
         <td scope="row"><%= product.price %></td>
         <td scope="row"><%= product.in_stock_quantity %></td>
+        
         <td scope="row"><%= link_to 'Show', product %></td>
+        <% if can? :manage, Product%>
         <td scope="row"><%= link_to 'Edit', edit_product_path(product) %></td>
         <td scope="row"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <% if not can? :manage, Product and not user_signed_in? %>
+        <td scope="row"><%= link_to 'add to cart', edit_cart_path(product) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<% if can? :manage, Product%>
 <%= link_to 'New Product', new_product_path %>
+<% end %>
