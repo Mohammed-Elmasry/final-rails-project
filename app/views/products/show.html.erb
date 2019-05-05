@@ -28,6 +28,7 @@
   <strong>In stock quantity:</strong>
   <%= @product.in_stock_quantity %>
 </p>
-
+<% if can? :manage, Product%>
 <%= link_to 'Edit', edit_product_path(@product) %> |
+<% end %>
 <%= link_to 'Back', products_path %>
