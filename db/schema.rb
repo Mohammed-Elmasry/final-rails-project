@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_05_083601) do
+ActiveRecord::Schema.define(version: 2019_05_05_123438) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -84,8 +84,15 @@ ActiveRecord::Schema.define(version: 2019_05_05_083601) do
     t.datetime "updated_at", null: false
     t.bigint "brand_id"
     t.bigint "category_id"
+    t.bigint "store_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["store_id"], name: "index_products_on_store_id"
+  end
+
+  create_table "products_stores", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "store_id", null: false
   end
 
   create_table "searches", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -140,5 +147,6 @@ ActiveRecord::Schema.define(version: 2019_05_05_083601) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "stores"
   add_foreign_key "sellers", "stores"
 end
