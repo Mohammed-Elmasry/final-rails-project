@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-  def edit
+  def edit #this is used as the add_to_cart method
     @product_id = params[:id]
     begin
       @cart = Cart.where(product_id: @product_id, buyer_id: current_buyer.id)
@@ -17,13 +17,5 @@ class CartController < ApplicationController
       @cart = Cart.create(buyer_id: current_buyer.id, product_id: @product_id, qty: 1)
     end
     redirect_to products_url
-  end
-
-  private
-
-  def add_to_cart()
-    #logic
-    puts ("ya bingo I got:  #{params}")
-    redirect_to products_path
   end
 end
