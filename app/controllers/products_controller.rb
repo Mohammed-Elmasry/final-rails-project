@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+   
+         @products = Product.search(params[:search] )
   end
 
   # GET /products/1
@@ -25,15 +26,15 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     if can? :create, Product
-      @product = Product.new(product_params)
-
-      respond_to do |format|
-        if @product.save
-          format.html { redirect_to @product, notice: "Product was successfully created." }
-          format.json { render :show, status: :created, location: @product }
-        else
-          format.html { render :new }
-          format.json { render json: @product.errors, status: :unprocessable_entity }
+    @product = Product.new(product_params)
+    @product.store_id = current_seller.store_id
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.json { render :show, status: :created, location: @product }
+      else
+        format.html { render :new }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
         end
       end
     else

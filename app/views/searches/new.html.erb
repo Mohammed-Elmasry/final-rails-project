@@ -1,0 +1,30 @@
+<h1> Advanced Search </h1>
+<p> <%= link_to 'Back' , products_path %> </p>
+<%= form_for @search do |f| %>
+    <div class="field">
+        <%= f.label :title%>
+        <%= f.text_field :title %>
+    </div>
+    <div class="field">
+         <%= f.label :description%>
+        <%= f.text_area :description %>
+    </div>
+    <div class="field">
+        <%= f.label :category_id%> <br/>
+        <%= f.collection_select :category_id , Category.order(:name) , :id , :name , include_blank: true%>
+    </div>
+    <div class="field">
+        <%= f.label :brand_id%> <br/>
+        <%= f.collection_select :brand_id , Brand.order(:name) , :id , :name , include_blank: true%>
+    </div>
+    <div class="field">
+        <%= f.label :store_id%> <br/>
+        <%= f.collection_select :store_id , Store.order(:name) , :id , :name , include_blank: true%>
+    </div>
+    <div class="field">
+        <%= f.label :min_price , "Price Range"%><br/>
+        <%= f.text_field :min_price , size: 100 %>
+        <%= f.text_field :max_price , size: 2000%>
+    </div>
+    <div class="action" ><%= f.submit "Search"%> </div>
+<% end %>

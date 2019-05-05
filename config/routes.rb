@@ -27,7 +27,13 @@ Rails.application.routes.draw do
   resources :categories
   resources :brands
   resources :products
+  root "products#index"
   resources :seller_objects
+  resources :searches
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root "products#index"
+  post "authenticate", to: "authentication#authenticate"
+
   resources :cart
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "products#index"
