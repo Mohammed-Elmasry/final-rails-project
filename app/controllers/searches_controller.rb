@@ -9,6 +9,6 @@ class SearchesController < ApplicationController
         @search = Search.find(params[:id])
     end
     def search_params
-        params.require(:search).permit(:title , :description , :min_price , :max_price , :brand , :category)
+        params.require(:search).permit(:title , :description , :min_price , :max_price , :brand , :category , :store)
     end
 end
