@@ -1,4 +1,7 @@
 class CartController < ApplicationController
+  def index
+  end
+
   def edit #this is used as the add_to_cart method
     @product_id = params[:id]
     # begin
