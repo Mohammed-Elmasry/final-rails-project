@@ -4,8 +4,10 @@ class CartController < ApplicationController
     begin
       @cart = Cart.where(buyer_id: current_buyer.id, product_id: @product_id)
     rescue Exception
-      byebug
       puts ("order isn't there")
+      @cart = Cart.new(buyer_id: current_buyer.id, product_id: @product_id, qty: 1)
+      @cart.save
+      byebug
     end
     redirect_to products_url
   end
