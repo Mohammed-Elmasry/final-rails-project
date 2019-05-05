@@ -23,7 +23,6 @@ Rails.application.routes.draw do
                        sessions: "users/sessions",
                        confirmation: "users/confirmations",
                        passwords: "users/passwords",
-                       registerations: "users/registrations",
                      }
   resources :categories
   resources :brands

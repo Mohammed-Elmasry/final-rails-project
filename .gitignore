@@ -28,6 +28,7 @@
 
 # Ignore schema file
 /db/schema.rb
+!/db/schema.rb
 
 # Ignore config files
 /config/cable.yml
