@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   def create
     if can? :create, Product
     @product = Product.new(product_params)
-
+    @product.store_id = current_seller.store_id
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
