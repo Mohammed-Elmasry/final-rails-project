@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_100012) do
+ActiveRecord::Schema.define(version: 2019_05_06_111342) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -93,11 +93,11 @@ ActiveRecord::Schema.define(version: 2019_05_06_100012) do
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "buyer_id"
+    t.bigint "cart_id"
+    t.bigint "order_status_id"
     t.bigint "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "order_status_id"
-    t.bigint "cart_id"
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
