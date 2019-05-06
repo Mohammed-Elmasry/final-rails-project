@@ -7,4 +7,7 @@ class OrderController < ApplicationController
 
     def create
     end
+
+    def place_order
+    end
 end
