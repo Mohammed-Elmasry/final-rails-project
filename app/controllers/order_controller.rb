@@ -4,4 +4,7 @@ class OrderController < ApplicationController
     
     def confirm
     end
+
+    def create
+    end
 end
