@@ -35,8 +35,8 @@ Rails.application.routes.draw do
   post 'authenticate', to: 'authentication#authenticate'
 
   resources :cart  
-  get 'orders/confirm', to: 'orders#confirm'
-  get 'orders/deliver', to: 'orders#deliver'
+  get 'order/confirm', to: 'order#confirm'
+  get 'order/deliver', to: 'order#deliver'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "products#index"
