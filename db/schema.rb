@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_05_202728) do
+ActiveRecord::Schema.define(version: 2019_05_06_100012) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -96,7 +96,11 @@ ActiveRecord::Schema.define(version: 2019_05_05_202728) do
     t.bigint "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "order_status_id"
+    t.bigint "cart_id"
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
     t.index ["store_id"], name: "index_orders_on_store_id"
   end
 
@@ -173,6 +177,8 @@ ActiveRecord::Schema.define(version: 2019_05_05_202728) do
   add_foreign_key "carts", "buyers"
   add_foreign_key "carts", "products"
   add_foreign_key "orders", "buyers"
+  add_foreign_key "orders", "carts"
+  add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "stores"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
