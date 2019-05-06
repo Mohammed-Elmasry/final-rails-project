@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get "cart/add_to_cart"
-  resources :orders
   resources :stores
   devise_for :buyers, path: "buyers", controllers: {
                         registerations: "buyers/registrations",
