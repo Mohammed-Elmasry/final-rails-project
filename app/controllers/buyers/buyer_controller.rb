@@ -1,9 +1,4 @@
 class Buyers::BuyerController < ApplicationController
-  def show_products
-    puts "I got #{current_buyer.products}"
-    @cart = current_buyer.products
-    # byebug
-  end
 
   def add_to_cart
     # @product = Product.find(params[:id])
