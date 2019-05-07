@@ -29,4 +29,7 @@ class OrderController < ApplicationController
         end
         # byebug
     end
+    def update
+        puts "Hello from update"
+    end
 end

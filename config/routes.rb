@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get 'order/confirm', to: 'order#confirm'
   get 'order/deliver', to: 'order#deliver'
   get 'order/showpending' , to: 'order#show_pending'
-  put 'order/update/:id' , to: 'order#update_status' 
+  # put 'order/update_status/:id' , to: 'order#update_status' 
   resources :order
   # get 'buyers/create', to: 'buyers/sessions#create'
   # get 'buyers/add_to_cart', to: 'buyers#add_to_cart'
