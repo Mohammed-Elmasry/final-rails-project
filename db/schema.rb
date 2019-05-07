@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_091946) do
+ActiveRecord::Schema.define(version: 2019_05_07_092833) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2019_05_07_091946) do
   create_table "buyers_products", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "buyer_id", null: false
     t.bigint "product_id", null: false
-    t.integer "qty"
     t.index ["buyer_id", "product_id"], name: "index_buyers_products_on_buyer_id_and_product_id"
     t.index ["product_id", "buyer_id"], name: "index_buyers_products_on_product_id_and_buyer_id"
   end
@@ -101,13 +100,11 @@ ActiveRecord::Schema.define(version: 2019_05_07_091946) do
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "buyer_id"
-    t.bigint "cart_id"
     t.bigint "order_status_id"
     t.bigint "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
-    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
     t.index ["store_id"], name: "index_orders_on_store_id"
   end
@@ -192,7 +189,6 @@ ActiveRecord::Schema.define(version: 2019_05_07_091946) do
   add_foreign_key "carts", "buyers"
   add_foreign_key "carts", "products"
   add_foreign_key "orders", "buyers"
-  add_foreign_key "orders", "carts"
   add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "stores"
   add_foreign_key "products", "brands"
