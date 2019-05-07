@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   root 'products#index'
   post 'authenticate', to: 'authentication#authenticate'
 
-  # resources :order
+  resources :order
   post 'order/placeorder' , to: 'order#place_order'
   get 'order/confirm', to: 'order#confirm'
   get 'order/deliver', to: 'order#deliver'
