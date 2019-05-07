@@ -38,13 +38,14 @@ Rails.application.routes.draw do
   root 'products#index'
   post 'authenticate', to: 'authentication#authenticate'
 
-  resources :cart  
+  # resources :order
   post 'order/placeorder' , to: 'order#place_order'
   get 'order/confirm', to: 'order#confirm'
   get 'order/deliver', to: 'order#deliver'
-  get 'buyers/create', to: 'buyers/sessions#create'
+
+  # get 'buyers/create', to: 'buyers/sessions#create'
   # get 'buyers/add_to_cart', to: 'buyers#add_to_cart'
-  get 'buyer/add_to_cart/:id', to: 'buyers/buyer#add_to_cart'
+  # get 'buyer/add_to_cart/:id', to: 'buyers/buyer#add_to_cart'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "products#index"
 end
