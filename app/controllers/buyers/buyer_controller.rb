@@ -1,11 +1,8 @@
 class Buyers::BuyerController < ApplicationController
 
   def add_to_cart
-    # @product = Product.find(params[:id])
-    
     current_buyer.products<<Product.find(params[:id])
     redirect_to products_url
-    # byebug
   end
 
   def show_cart
@@ -25,6 +22,5 @@ class Buyers::BuyerController < ApplicationController
         @overall+=@cartProduct[:total]
       end
     end
-    # byebug
   end
 end

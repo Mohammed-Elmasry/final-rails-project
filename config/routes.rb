@@ -41,11 +41,9 @@ Rails.application.routes.draw do
   get 'order/confirm', to: 'order#confirm'
   get 'order/deliver', to: 'order#deliver'
   get 'order/showpending' , to: 'order#show_pending'
-  # put 'order/update_status/:id' , to: 'order#update_status' 
+  put 'order/update_status/:id' , to: 'order#update_status' 
   resources :order
-  # get 'buyers/create', to: 'buyers/sessions#create'
-  # get 'buyers/add_to_cart', to: 'buyers#add_to_cart'
-  # get 'buyer/add_to_cart/:id', to: 'buyers/buyer#add_to_cart'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "products#index"
 end
