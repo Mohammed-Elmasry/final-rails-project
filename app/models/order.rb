@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-  belongs_to :buyer
-  belongs_to :store
-  serialize :products
+    has_and_belongs_to_many :products
 end
+  

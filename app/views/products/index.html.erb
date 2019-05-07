@@ -2,9 +2,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
     </ul>
     <%= form_tag products_path, :method => 'get' do %>
   <%= text_field_tag :search , params[:search] ,placeholder:"Enter Title"%>
@@ -13,6 +10,16 @@
   </div>
   <div>
      <%= link_to "Advanced Search" , new_search_path %>
+  </div>
+  <div>
+    <% if can? :manage, Product%>
+<%= link_to 'New Product', new_product_path %>
+<% end %>
+  </div>
+  <div>
+  <% if can? :manage, Product %>
+    <%= link_to " show pending products" , order_index_path %>
+    <% end %>
   </div>
 </nav>
 <h1>Products</h1>
@@ -44,7 +51,7 @@
         <td scope="row"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
         <% if not can? :manage, Product and not user_signed_in? %>
-        <td scope="row"><%= link_to 'add to cart', edit_cart_path(product) %></td>
+        <td scope="row"><%= link_to 'add to cart',   buyers_buyer_add_to_cart_path(id: product), method: :post %> </td>
         <% end %>
       </tr>
     <% end %>
@@ -52,6 +59,4 @@
 </table>
 
 <br>
-<% if can? :manage, Product%>
-<%= link_to 'New Product', new_product_path %>
-<% end %>
+

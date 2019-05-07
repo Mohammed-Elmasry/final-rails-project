@@ -1,0 +1,26 @@
+<h1>Pending Orders</h1>
+<table class="table">
+
+    <tr>
+      <th  scope="col">Order ID</th>
+      <th scope="col" > Status </th>
+      <th scope="col" > Products </th>
+    </tr>
+    <% @arr.each do |order| %>
+        <tr>
+            <td> <%= order.id%></td>
+            <td><%= order.status %></td>
+            <td> <% order.products.each do |product| %>
+            <table>
+                <tr>
+                <td><%= product.title%></td>
+                <td><%= product.price%></td>
+                </tr>
+            </table>
+            <% end %>
+
+            </td>
+       <td> <%=link_to "Update status" , order_path(:id => order), method: :patch %> </td>
+        </tr>
+    <% end %>
+</table>
