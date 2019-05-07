@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_05_07_133530) do
   create_table "buyers_products", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "buyer_id", null: false
     t.bigint "product_id", null: false
+    t.integer "qty"
     t.index ["buyer_id", "product_id"], name: "index_buyers_products_on_buyer_id_and_product_id"
     t.index ["product_id", "buyer_id"], name: "index_buyers_products_on_product_id_and_buyer_id"
   end

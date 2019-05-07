@@ -4,6 +4,5 @@ class CreateJoinTableBuyerProduct < ActiveRecord::Migration[5.2]
       t.index [:buyer_id, :product_id]
       t.index [:product_id, :buyer_id]
     end
-    add_column :buyers_products, :qty, :integer
   end
 end
