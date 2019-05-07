@@ -2,9 +2,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
     </ul>
     <%= form_tag products_path, :method => 'get' do %>
   <%= text_field_tag :search , params[:search] ,placeholder:"Enter Title"%>
@@ -13,6 +10,11 @@
   </div>
   <div>
      <%= link_to "Advanced Search" , new_search_path %>
+  </div>
+  <div>
+    <% if can? :manage, Product%>
+<%= link_to 'New Product', new_product_path %>
+<% end %>
   </div>
 </nav>
 <h1>Products</h1>
@@ -52,6 +54,4 @@
 </table>
 
 <br>
-<% if can? :manage, Product%>
-<%= link_to 'New Product', new_product_path %>
-<% end %>
+
