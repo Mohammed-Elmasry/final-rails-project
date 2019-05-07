@@ -16,6 +16,11 @@
 <%= link_to 'New Product', new_product_path %>
 <% end %>
   </div>
+  <div>
+  <% if can? :manage, Product %>
+    <%= link_to " show pending products" ,   order_showpending_path %>
+    <% end %>
+  </div>
 </nav>
 <h1>Products</h1>
 </div class="col-xs-6 col-xs-offset-3">

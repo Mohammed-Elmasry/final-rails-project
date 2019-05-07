@@ -20,4 +20,13 @@ class OrderController < ApplicationController
     def new
         @order = Order.new
     end
+    def show_pending
+        @arr = Array.new
+        @orders = Order.where(status: "Pending")
+        @orders.each do |order|
+            @arr.push(order)
+            # @arr[0][:id].products[0]
+        end
+        # byebug
+    end
 end

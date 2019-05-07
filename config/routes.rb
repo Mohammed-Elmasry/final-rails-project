@@ -38,11 +38,11 @@ Rails.application.routes.draw do
   root 'products#index'
   post 'authenticate', to: 'authentication#authenticate'
 
-  resources :order
-  post 'order/placeorder' , to: 'order#place_order'
   get 'order/confirm', to: 'order#confirm'
   get 'order/deliver', to: 'order#deliver'
-
+  get 'order/showpending' , to: 'order#show_pending'
+  put 'order/update/:id' , to: 'order#update_status' 
+  resources :order
   # get 'buyers/create', to: 'buyers/sessions#create'
   # get 'buyers/add_to_cart', to: 'buyers#add_to_cart'
   # get 'buyer/add_to_cart/:id', to: 'buyers/buyer#add_to_cart'
