@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  get "cart/add_to_cart"
+  namespace :buyers do
+    get 'buyer/show_products'
+    post 'buyer/add_to_cart'
+    get 'buyer/show_cart'
+  end
+  # get "cart/add_to_cart"
   resources :stores
   devise_for :buyers, path: "buyers", controllers: {
                         registerations: "buyers/registrations",
                         sessions: "buyers/sessions",
                         confirmation: "buyers/confirmations",
                         passwords: "buyers/passwords",
-                        registerations: "buyers/registrations",
                       }
   devise_for :sellers, controllers: {
                          #   registrations: 'sellers/registrations',
@@ -35,9 +39,12 @@ Rails.application.routes.draw do
   post 'authenticate', to: 'authentication#authenticate'
 
   resources :cart  
-  get 'order/placeOrder' , to: 'order#place_order'
+  post 'order/placeorder' , to: 'order#place_order'
   get 'order/confirm', to: 'order#confirm'
   get 'order/deliver', to: 'order#deliver'
+  get 'buyers/create', to: 'buyers/sessions#create'
+  # get 'buyers/add_to_cart', to: 'buyers#add_to_cart'
+  get 'buyer/add_to_cart/:id', to: 'buyers/buyer#add_to_cart'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "products#index"
 end

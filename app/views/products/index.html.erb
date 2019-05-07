@@ -44,7 +44,10 @@
         <td scope="row"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
         <% if not can? :manage, Product and not user_signed_in? %>
-        <td scope="row"><%= link_to 'add to cart', edit_cart_path(product) %></td>
+        <td scope="row"><%= link_to 'add to cart', edit_cart_path(product) %> </td>
+      
+        <td scope="row"><%= link_to 'add to cart',   buyers_buyer_add_to_cart_path(id: product), method: :post %> </td>
+
         <% end %>
       </tr>
     <% end %>
@@ -55,3 +58,5 @@
 <% if can? :manage, Product%>
 <%= link_to 'New Product', new_product_path %>
 <% end %>
+
+<%= link_to 'click me', buyers_buyer_show_products_path %>

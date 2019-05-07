@@ -11,6 +11,8 @@
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
+ 
+
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
@@ -24,3 +26,5 @@
 <% end %>
 
 <%= render "buyers/shared/links" %>
+
+<%= link_to 'click me', buyers_buyer_show_products_path %>
